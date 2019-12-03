@@ -1,0 +1,88 @@
+switch (customKey)
+  {	
+	lcd.clear();
+	Serial.print("mmmmm"); 
+    case '0' ... '9': // Typing numbers
+      // lcd.setCursor(0,0);
+      if (transfr == 0) { //cannot change if transfer has been initiated.
+        wanted = wanted * 10 + (customKey - '0');
+        if (wanted > 9999)
+        {
+          wanted = 0;
+        }
+        //lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("Amount");
+
+
+        // lcd.setCursor(7,0);
+        // lcd.print("EC:");
+        // lcd.setCursor(10,0);
+        // lcd.print(EC25);
+
+        lcd.setCursor(0, 1);
+        lcd.print ("In=");
+
+        lcd.setCursor(3, 1);
+        lcd.print(wanted);
+
+        Serial.println(wanted);
+
+      }
+      break;
+
+    case 'A': 
+		//status = false;
+		//if (customKey == 'A') {lcd.clear();DisplayIS = 2;fertA();} //หากกด A ให้ไปเรียกหน้าจอ fertA()มาแสดง
+
+      break;
+
+    case 'B': //Function button F2 not in use
+
+      break;
+
+    case 'C': //กลับสู่หน้าแรก
+	if (customKey == 'C') {lcd.clear();DisplayIS = 1;DESKTOP1();} //หากกด C ให้ไปเรียกหน้าจอ DESKTOP1()มาแสดง  ****ก็คือหน้าเริ่ม กลับสู่หน้าแรก
+
+
+      break;
+
+    case 'D': //Function button RESET
+
+      wanted = 0;
+      transfr = 0;
+      //liter = 0;
+      //litergam = 1;
+      waterpulse = 0;
+
+      totalMilliLitres = 0;
+
+      lcd.setCursor(3, 1);
+      lcd.print("    ");
+
+      lcd.setCursor(8, 1);
+      lcd.print("    ");
+
+      lcd.setCursor(12, 1);
+      lcd.print("    ");
+
+
+      break;
+
+    case '*':  // Start button, start transferring the ammount typed in
+      transfr = 1;
+      /*  lcd.setCursor(9,1);
+        lcd.print("  "); */
+      liter = 0;
+      waterpulse = 0;
+      break;
+
+    case '#':  // Stop button, stop transferring
+      transfr = 0;
+
+      break;
+
+
+
+
+  }
