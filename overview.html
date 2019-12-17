@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<center><p style="font-size:50px;">Overview</p></center>
+<center>
+
+<img align= "bottom" src="sensor.gif" width=" 100" height="250"/>
+<img align= "bottom" src="arr.gif" width=" 100" height="200"/>
+<img align= "bottom"src="server.gif" alt="server" width="250"/>
+<img align= "bottom" src="arr.gif" width=" 100" height="200"/>
+<img align= "bottom" src="dash.gif" width=" 250" height="200"/>
+</center>
+<p>Date/Time: <span id="datetime"></span></p>
+
+<script>
+var dt = new Date();
+document.getElementById("datetime").innerHTML = dt.toLocaleString();
+</script>
+
+
+<style>
+#selector {
+    width:100%;
+    height:100%;
+}
+
+</style>
+
+
+
+</body>
+</html>
